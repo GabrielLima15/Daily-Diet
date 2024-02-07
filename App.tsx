@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components/native'
-import theme from './src/theme';
+import theme from '@theme/index';
 
 import {
 	NunitoSans_400Regular,
