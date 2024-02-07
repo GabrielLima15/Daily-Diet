@@ -1,39 +1,38 @@
+import { Platform, StatusBar } from 'react-native';
+
+const currentHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
+
 export default {
-	colors: {
-		green: '#22B4B1',
-		green_for_svg: '#74DB8C',
-		green_background_svg: '#BDF4DE',
-		red_for_svg: '#EE0F0F',
-		red_background_svg: '#FED1CB',
-		orange: '#F39200',
-		yellow: '#EFBC06',
-		white: '#FFFFFF',
-		gray: '#F0F0F0',
-		black: '#000',
-		border: '#BCC5E3',
+    COLORS: {
+				red_dark: '#BF3B44',
+				red_mid: 'F3BABD',
+        red_light: '#F4E6E7',
 
-		input_text: '#475C98',
-		input_text_placeholder: '#9CAAD1',
-		text: '#575656',
-		group_circle: '#696969',
-	},
+				green_dark: '#639339',
+				green_mid: '#CBE4B4',
+				green_light: '#E5F0DB',
 
-	fonts: {
-		inter_bold: 'Inter-Bold',
-		inter_medium: 'Inter-Medium',
-		inter_regular: 'Inter-Regular',
-		inter_semibold: 'Inter-SemiBold',
+				gray_1: '#1B1D1E',
+				gray_2: '#333638',
+				gray_3: '#5C6265',
+				gray_4: '#B9BBBC',
+				gray_5: '#DDDEDF',
+				gray_6: '#EFF0F0',
+				gray_7: '#FAFAFA',
+				white: '#FFFFFF',
+    },
 
-		poppins_bold: 'Poppins-Bold',
-		poppins_medium: 'Poppins-Medium',
-		poppins_regular: 'Poppins-Regular',
-		poppins_semibold: 'Poppins-SemiBold',
-	},
+    FONT_FAMILY: {
+			REGULAR: 'NunitoSans_400Regular',
+			BOLD: 'NunitoSans_700Bold',
+		},
 
-	font_size: {
-		SM: 14,
-		MD: 16,
-		LG: 18,
-		XL: 24,
-	},
+    FONT_SIZE: {
+			SM: 14,
+			MD: 16,
+			LG: 18,
+			XL: 24,
+		},
+
+    currentHeight,
 };
