@@ -4,6 +4,7 @@ import theme from "@theme/index";
 
 
 export const Container = styled.SafeAreaView`
-	margin: 0px ${RFValue(20)}px;
-	padding-top: ${theme.currentHeight};
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: ${theme.currentHeight}px;
 `
