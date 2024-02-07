@@ -28,11 +28,13 @@ export default {
 		},
 
     FONT_SIZE: {
-			SM: 14,
-			MD: 16,
-			LG: 18,
-			XL: 24,
-		},
+			SM: 12,
+			MD: 14,
+			LG: 16,
+			XL: 18,
+			XXL: 24,
+			XXXL: 32,
+	},
 
     currentHeight,
 };
