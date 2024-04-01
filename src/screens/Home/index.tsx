@@ -5,6 +5,7 @@ import theme from "@theme/index";
 import { Plus } from "phosphor-react-native";
 import { SectionList } from "react-native";
 import { Blur, Container, Divider, DotMeal, HeaderSectionList, Hour, MealTitle, SectionListColumn, Title } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
 
@@ -99,11 +100,18 @@ export function Home() {
 		},
 	];
 
+	const navigation = useNavigation()
+
+	 function ViewInfoDiet() {
+		navigation.navigate('dietInfo')
+	}
+
 	return (
 		<Container>
 			<Header />
 
 			<Card
+				onPress={ViewInfoDiet}
 				rounded={2}
 				arrow
 				arrowColor={theme.COLORS.green_dark}

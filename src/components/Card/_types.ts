@@ -2,6 +2,7 @@ export interface CardPropsStyles {
 	backgroundColor?: string;
 	rounded?: number;
 	titleFontSize?: number;
+	margin?: string;
 }
 export interface CardProps {
 	backgroundColor?: string;
@@ -11,4 +12,6 @@ export interface CardProps {
 	title?: string;
 	titleFontSize?: number;
 	subTitle?: string;
+	onPress?: () => void
+	margin?: string
 }

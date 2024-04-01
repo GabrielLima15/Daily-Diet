@@ -2,13 +2,13 @@ import { ArrowUpRight } from "phosphor-react-native";
 import { CardProps } from "./_types";
 import { ArrowTopRight, Container, SubTitle, Title, Wrapper, WrapperText } from "./styles";
 
-export function Card({ backgroundColor, rounded, arrow, arrowColor, title, titleFontSize, subTitle }: CardProps) {
+export function Card({ backgroundColor, rounded, arrow, arrowColor, title, titleFontSize, subTitle, onPress, margin }: CardProps) {
 	return (
-		<Container backgroundColor={backgroundColor} rounded={rounded}>
+		<Container margin={margin} backgroundColor={backgroundColor} rounded={rounded}>
 			<Wrapper>
 
 				{arrow && (
-					<ArrowTopRight>
+					<ArrowTopRight onPress={onPress}>
 						<ArrowUpRight color={arrowColor} />
 					</ArrowTopRight>
 				)}

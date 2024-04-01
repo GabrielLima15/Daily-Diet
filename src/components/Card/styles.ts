@@ -6,7 +6,7 @@ import { CardPropsStyles } from "./_types";
 export const Container = styled.SafeAreaView<CardPropsStyles>`
   background-color: ${props => props.backgroundColor || props.theme.COLORS.green_light};
 	border-radius: ${props => props.rounded !== undefined ? `${getResponsiveSize(props.rounded)}px` : '0px'};
-	margin: ${getResponsiveSpacing(5)}px ${getResponsiveSpacing(8)}px;
+	margin: ${props => props.margin || `${getResponsiveSpacing(5)}px ${getResponsiveSpacing(8)}px`};
 `;
 
 export const Wrapper = styled.View`
@@ -36,4 +36,5 @@ export const Title = styled.Text<CardPropsStyles>`
 export const SubTitle = styled.Text`
 	font-size: ${theme.FONT_SIZE.LG}px;
 	font-family: ${theme.FONT_FAMILY.REGULAR};
+	text-align: center;
 `
