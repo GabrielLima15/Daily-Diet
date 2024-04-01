@@ -1,11 +1,11 @@
 export interface CardPropsStyles {
 	backgroundColor?: string;
-	rounded?: boolean;
+	rounded?: number;
 	titleFontSize?: number;
 }
 export interface CardProps {
 	backgroundColor?: string;
-	rounded?: boolean;
+	rounded?: number;
 	arrow?: boolean;
 	arrowColor?: string;
 	title?: string;

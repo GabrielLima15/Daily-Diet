@@ -5,7 +5,7 @@ import { CardPropsStyles } from "./_types";
 
 export const Container = styled.SafeAreaView<CardPropsStyles>`
   background-color: ${props => props.backgroundColor || props.theme.COLORS.green_light};
-	border-radius: ${props => props.rounded ? `${getResponsiveSize(5)}px` : '0px'};
+	border-radius: ${props => props.rounded !== undefined ? `${getResponsiveSize(props.rounded)}px` : '0px'};
 	margin: ${getResponsiveSpacing(5)}px ${getResponsiveSpacing(8)}px;
 `;
 
