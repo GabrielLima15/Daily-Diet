@@ -102,16 +102,12 @@ export function Home() {
 
 	const navigation = useNavigation()
 
-	 function ViewInfoDiet() {
-		navigation.navigate('dietInfo')
-	}
-
 	return (
 		<Container>
 			<Header />
 
 			<Card
-				onPress={ViewInfoDiet}
+				onPress={() => navigation.navigate('dietInfo')}
 				rounded={2}
 				arrow
 				arrowColor={theme.COLORS.green_dark}
@@ -131,7 +127,7 @@ export function Home() {
 				iconComponent={<Plus color={theme.COLORS.white} weight={"bold"} size={15} />}
 				WidthAndHeight={[5, 7]}
 				spacing={[5, 0]}
-				onPress={() => { }}
+				onPress={() => navigation.navigate('newMeal')}
 				text="Nova Refeição"
 				textColor={theme.COLORS.white}
 				fontFamily={theme.FONT_FAMILY.BOLD}

@@ -1,22 +1,26 @@
 import { BackButton } from "@components/BackButton";
-import { Container, ContainerStates, Description, Group, GroupCards, NumberPercentage, Row, Title } from "./styles";
+import { Container, ContainerStates, Description, Group, GroupCards, NumberPercentage, Row, Title, TopContent } from "./styles";
 import { Card } from "@components/Card";
 import theme from "@theme/index";
 
 export function DietInfo() {
 	return (
 		<Container>
-			<BackButton />
+			<TopContent>
 
-			<Group>
-				<NumberPercentage>
-					90,86%
-				</NumberPercentage>
+				<BackButton color={theme.COLORS.green_dark}/>
 
-				<Description>
-					Lorem ipsum dolor sit.
-				</Description>
-			</Group>
+				<Group>
+					<NumberPercentage>
+						90,86%
+					</NumberPercentage>
+
+					<Description>
+						das refeições dentro da dieta
+					</Description>
+				</Group>
+
+			</TopContent>
 
 			<ContainerStates>
 				<Title>Estatísticas gerais</Title>
@@ -35,7 +39,7 @@ export function DietInfo() {
 						margin="10px 0px"
 						rounded={2}
 						titleFontSize={theme.FONT_SIZE.XL}
-						title="22"
+						title="109"
 						subTitle="das refeições dentro da dieta"
 						backgroundColor={theme.COLORS.gray_6}
 					/>
@@ -46,7 +50,7 @@ export function DietInfo() {
 							margin="10px 0px"
 							rounded={2}
 							titleFontSize={theme.FONT_SIZE.XL}
-							title="22"
+							title="99"
 							subTitle={`refeições dentro da ${`\n`} dieta`}
 							backgroundColor={theme.COLORS.green_light}
 						/>
@@ -55,8 +59,8 @@ export function DietInfo() {
 							margin="10px 0px"
 							rounded={2}
 							titleFontSize={theme.FONT_SIZE.XL}
-							title="22"
-							subTitle={`refeições dentro da ${`\n`} dieta`}
+							title="10"
+							subTitle={`refeições fora da ${`\n`} dieta`}
 							backgroundColor={theme.COLORS.red_light}
 						/>
 

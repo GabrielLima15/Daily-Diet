@@ -3,8 +3,18 @@ import styled from "styled-components/native";
 import { ButtonPropsStyles } from "./_types";
 
 export const Container = styled.TouchableOpacity<ButtonPropsStyles>`
-	margin: ${props => props.margin ? `${getResponsiveSpacing(props.margin[0])}px ${getResponsiveSpacing(props.margin[1])}px` : `${getResponsiveSpacing(5)}px ${getResponsiveSpacing(8)}px`};
-	padding: ${props => props.padding ? `${getResponsiveSpacing(props.padding[0])}px ${getResponsiveSpacing(props.padding[1])}px` : `${getResponsiveSpacing(5)}px ${getResponsiveSpacing(8)}px`};
+	${({ margin, theme }) => margin && `
+    ${margin.top !== undefined ? `margin-top: ${getResponsiveSpacing(margin.top)}px;` : ''}
+    ${margin.right !== undefined ? `margin-right: ${getResponsiveSpacing(margin.right)}px;` : ''}
+    ${margin.bottom !== undefined ? `margin-bottom: ${getResponsiveSpacing(margin.bottom)}px;` : ''}
+    ${margin.left !== undefined ? `margin-left: ${getResponsiveSpacing(margin.left)}px;` : ''}
+  `}
+  ${({ padding, theme }) => padding && `
+    ${padding.top !== undefined ? `padding-top: ${getResponsiveSpacing(padding.top)}px;` : ''}
+    ${padding.right !== undefined ? `padding-right: ${getResponsiveSpacing(padding.right)}px;` : ''}
+    ${padding.bottom !== undefined ? `padding-bottom: ${getResponsiveSpacing(padding.bottom)}px;` : ''}
+    ${padding.left !== undefined ? `padding-left: ${getResponsiveSpacing(padding.left)}px;` : ''}
+  `}
 	background-color: ${props => props.backgroundColor || props.theme.COLORS.green_light};
 	border-radius: ${props => props.rounded !== undefined ? `${getResponsiveSize(props.rounded)}px` : '0px'};
 `

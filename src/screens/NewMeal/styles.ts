@@ -1,47 +1,38 @@
 import theme, { getResponsiveFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
 import styled from "styled-components/native";
 
+type DotProps = {
+	backgroudColor?: string;
+}
+
 export const Container = styled.View`
-	background-color: ${theme.COLORS.green_light};
+	background-color: ${theme.COLORS.gray_5};
 	flex: 1;
 `
 
 export const TopContent = styled.SafeAreaView`
-	background-color: ${theme.COLORS.green_light};
+	background-color: ${theme.COLORS.gray_5};
 	height: ${getResponsiveSize(60)}px;
 `
 
 export const Group = styled.View`
 	align-items: center;
+	margin-top: ${getResponsiveSize(-8)}px;
 `
 
-export const NumberPercentage = styled.Text`
+export const Title = styled.Text`
 	font-family: ${theme.FONT_FAMILY.BOLD};
-	font-size: ${theme.FONT_SIZE.XXXL}px;
-`
-
-export const Description = styled.Text`
-	font-family: ${theme.FONT_FAMILY.REGULAR};
-	font-size: ${theme.FONT_SIZE.LG}px;
+	font-size: ${theme.FONT_SIZE.XL}px;
 `
 
 export const ContainerStates = styled.View`
 	background-color: ${theme.COLORS.white};
 	position: absolute;
 	width: 100%;
-	top: 20%;
+	top: 13%;
 	height: 100%;
 	border-top-left-radius: 30px;
  	border-top-right-radius: 30px;
-	align-items: center;
-`
-
-export const Title = styled.Text`
-	text-align: center;
-	padding-top: ${getResponsiveSize(15)}px;
-	padding-bottom: ${getResponsiveSize(5)}px;
-	font-family: ${theme.FONT_FAMILY.BOLD};
-	font-size: ${getResponsiveFontSize(14)}px;
 `
 
 export const GroupCards = styled.View`
@@ -51,5 +42,14 @@ export const GroupCards = styled.View`
 
 export const Row = styled.View`
 	flex-direction: row;
-	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+`
+
+export const Dot = styled.View<DotProps>`
+	background-color: ${props => props.backgroudColor || theme.COLORS.white};
+	height: ${getResponsiveSize(3)}px;
+	width: ${getResponsiveSize(3)}px;
+	border-radius: ${getResponsiveSize(10)}px;
 `
