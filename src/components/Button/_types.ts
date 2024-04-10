@@ -19,6 +19,7 @@ export interface ButtonPropsStyles {
   padding?: SpacingProps;
   textColor?: string;
   fontFamily?: string;
+	size?: SizeProps;
 }
 
 export interface ButtonProps extends ButtonPropsStyles {

@@ -11,7 +11,8 @@ export function Button({
   margin,
   padding,
   fontFamily,
-  textColor
+  textColor,
+	size
 }: ButtonProps) {
   return (
     <Container
@@ -20,6 +21,7 @@ export function Button({
       onPress={onPress}
 			margin={margin}
       padding={padding}
+			size={size}
     >
       <Wrapper>
         {icon && (

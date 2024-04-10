@@ -1,10 +1,10 @@
 import { ArrowUpRight } from "phosphor-react-native";
-import { CardProps } from "./_types";
 import { ArrowTopRight, Container, SubTitle, Title, Wrapper, WrapperText } from "./styles";
+import { CardProps } from "./_types";
 
-export function Card({ backgroundColor, rounded, arrow, arrowColor, title, titleFontSize, subTitle, onPress, margin }: CardProps) {
+export function Card({ backgroundColor, rounded, arrow, arrowColor, title, titleFontSize, subTitle, onPress, margin, size }: CardProps) {
 	return (
-		<Container margin={margin} backgroundColor={backgroundColor} rounded={rounded}>
+		<Container  margin={margin} size={size}  backgroundColor={backgroundColor} rounded={rounded}>
 			<Wrapper>
 
 				{arrow && (

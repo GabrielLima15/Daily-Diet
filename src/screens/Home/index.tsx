@@ -109,6 +109,7 @@ export function Home() {
 			<Card
 				onPress={() => navigation.navigate('dietInfo')}
 				rounded={2}
+				margin={{ left: 5, right: 5 }}
 				arrow
 				arrowColor={theme.COLORS.green_dark}
 				titleFontSize={theme.FONT_SIZE.XXXL}
@@ -125,8 +126,8 @@ export function Home() {
 				rounded={2}
 				icon
 				iconComponent={<Plus color={theme.COLORS.white} weight={"bold"} size={15} />}
-				WidthAndHeight={[5, 7]}
-				spacing={[5, 0]}
+				padding={{ top: 5, bottom: 5, left: 5, right: 5, }}
+				margin={{ left: 5, right: 5, top: 5, bottom: 5}}
 				onPress={() => navigation.navigate('newMeal')}
 				text="Nova Refeição"
 				textColor={theme.COLORS.white}

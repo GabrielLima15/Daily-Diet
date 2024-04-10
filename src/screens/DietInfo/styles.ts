@@ -1,9 +1,10 @@
 import theme, { getResponsiveFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
 	background-color: ${theme.COLORS.green_light};
 	flex: 1;
+	padding-top: ${theme.currentHeight}px;
 `
 
 export const TopContent = styled.SafeAreaView`
@@ -44,12 +45,12 @@ export const Title = styled.Text`
 	font-size: ${getResponsiveFontSize(14)}px;
 `
 
-export const GroupCards = styled.View`
+export const Column = styled.View`
 
 
 `
 
 export const Row = styled.View`
 	flex-direction: row;
-	gap: 20px;
+	gap: ${getResponsiveSpacing(1)}px;
 `

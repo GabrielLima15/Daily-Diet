@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { InputProps } from "./_types";
+import { InputProps, MaskedInputProps } from "./_types";
 import { Container, LabelInput, TextInput } from "./styles";
 import { maskDate, maskTime } from "@utils/mask";
+import { Controller } from 'react-hook-form';
 
-interface MaskedInputProps extends InputProps {
-	maskType?: 'date' | 'time';
-}
 
-export function Input({ label, placeholder, paddingLabel, margin, paddingInput, width, maskType, multiline, height }: MaskedInputProps) {
-	const [value, setValue] = useState('');
 
+export function Input({ label, placeholder, paddingLabel, margin, paddingInput, width, maskType, multiline, height, control, name, keyboardType }: MaskedInputProps) {
 	const handleChange = (text: string) => {
 		let maskedValue = text;
 		if (maskType === 'date') {
@@ -17,7 +14,7 @@ export function Input({ label, placeholder, paddingLabel, margin, paddingInput, 
 		} else if (maskType === 'time') {
 			maskedValue = maskTime(text);
 		}
-		setValue(maskedValue);
+		return maskedValue;
 	};
 
 	return (
@@ -25,14 +22,21 @@ export function Input({ label, placeholder, paddingLabel, margin, paddingInput, 
 			<LabelInput padding={paddingLabel}>
 				{label}
 			</LabelInput>
-			<TextInput
-				height={height}
-				multiline={multiline}
-				value={value}
-				onChangeText={handleChange}
-				placeholder={placeholder}
-				padding={paddingInput}
-				keyboardType="numeric"
+			<Controller
+				control={control}
+				render={({ field: { onChange, value } }) => (
+					<TextInput
+						height={height}
+						multiline={multiline}
+						value={value}
+						onChangeText={value => onChange(handleChange(value))}
+						placeholder={placeholder}
+						padding={paddingInput}
+						keyboardType={keyboardType}
+					/>
+				)}
+				name={name}
+				defaultValue=""
 			/>
 		</Container>
 	)

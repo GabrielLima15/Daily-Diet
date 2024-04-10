@@ -4,9 +4,18 @@ import styled from "styled-components/native";
 import { CardPropsStyles } from "./_types";
 
 export const Container = styled.SafeAreaView<CardPropsStyles>`
-  background-color: ${props => props.backgroundColor || props.theme.COLORS.green_light};
+  background-color: ${props => props.backgroundColor !== undefined ? `${props.backgroundColor}` : `${props.theme.COLORS.green_light}`};
 	border-radius: ${props => props.rounded !== undefined ? `${getResponsiveSize(props.rounded)}px` : '0px'};
-	margin: ${props => props.margin || `${getResponsiveSpacing(5)}px ${getResponsiveSpacing(8)}px`};
+  ${({ margin }) => margin && `
+    ${margin.top !== undefined ? `margin-top: ${getResponsiveSpacing(margin.top)}px;` : ''}
+    ${margin.right !== undefined ? `margin-right: ${getResponsiveSpacing(margin.right)}px;` : ''}
+    ${margin.bottom !== undefined ? `margin-bottom: ${getResponsiveSpacing(margin.bottom)}px;` : ''}
+    ${margin.left !== undefined ? `margin-left: ${getResponsiveSpacing(margin.left)}px;` : ''}
+  `}
+	${({ size }) => size && `
+    ${size.width !== undefined ? `width: ${getResponsiveSize(size.width)}px;` : ''}
+    ${size.height !== undefined ? `height: ${getResponsiveSize(size.height)}px;` : ''}
+  `}
 `;
 
 export const Wrapper = styled.View`
@@ -30,7 +39,7 @@ export const WrapperText = styled.View`
 `
 
 export const Title = styled.Text<CardPropsStyles>`
-	font-size: ${props => props.titleFontSize || `${theme.FONT_SIZE.XXXL}`}px;
+	font-size: ${props => props.titleFontSize !== undefined ? `${props.titleFontSize}` : props.theme.FONT_SIZE.XXXL}px;
 	font-family: ${theme.FONT_FAMILY.BOLD};
 `
 export const SubTitle = styled.Text`

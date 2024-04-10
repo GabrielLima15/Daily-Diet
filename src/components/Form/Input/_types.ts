@@ -1,3 +1,6 @@
+import { Control } from "react-hook-form";
+import { KeyboardType } from "react-native";
+
 export interface SpacingProps {
   top?: number;
   right?: number;
@@ -14,6 +17,7 @@ export interface InputProps {
   width?: number;
   multiline?: boolean;
   height?: number;
+	keyboardType: KeyboardType
 }
 
 export interface LabelInputProps {
@@ -28,4 +32,10 @@ export interface TextInputProp {
 export interface ContainerProps {
   margin?: SpacingProps;
   width?: number;
+}
+
+export interface MaskedInputProps extends InputProps {
+  maskType?: 'date' | 'time' | 'money';
+  control: Control;
+  name: string;
 }

@@ -15,7 +15,11 @@ export const Container = styled.TouchableOpacity<ButtonPropsStyles>`
     ${padding.bottom !== undefined ? `padding-bottom: ${getResponsiveSpacing(padding.bottom)}px;` : ''}
     ${padding.left !== undefined ? `padding-left: ${getResponsiveSpacing(padding.left)}px;` : ''}
   `}
-	background-color: ${props => props.backgroundColor || props.theme.COLORS.green_light};
+	${({ size, theme }) => size && `
+    ${size.width !== undefined ? `width: ${getResponsiveSize(size.width)}px;` : ''}
+    ${size.height !== undefined ? `height: ${getResponsiveSize(size.height)}px;` : ''}
+  `}
+	background-color: ${props => props.backgroundColor !== undefined ? `${props.backgroundColor}` : props.theme.COLORS.green_light};
 	border-radius: ${props => props.rounded !== undefined ? `${getResponsiveSize(props.rounded)}px` : '0px'};
 `
 
@@ -31,6 +35,6 @@ export const IconContainer = styled.View`
 `
 
 export const TextButton = styled.Text<ButtonPropsStyles>`
-	font-family: ${props => props.fontFamily || props.theme.FONT_FAMILY.BOLD};
+	font-family: ${props => props.fontFamily !== undefined ? `${props.fontFamily}` : props.theme.FONT_FAMILY.BOLD};
 	color: ${props => props.textColor || props.theme.COLORS.white};
 `
