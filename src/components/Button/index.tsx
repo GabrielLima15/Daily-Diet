@@ -12,11 +12,13 @@ export function Button({
   padding,
   fontFamily,
   textColor,
-	size
+	size,
+	borderStyle
 }: ButtonProps) {
   return (
     <Container
       backgroundColor={backgroundColor}
+			borderStyle={borderStyle} 
       rounded={rounded}
       onPress={onPress}
 			margin={margin}

@@ -21,6 +21,7 @@ export const Container = styled.TouchableOpacity<ButtonPropsStyles>`
   `}
 	background-color: ${props => props.backgroundColor !== undefined ? `${props.backgroundColor}` : props.theme.COLORS.green_light};
 	border-radius: ${props => props.rounded !== undefined ? `${getResponsiveSize(props.rounded)}px` : '0px'};
+	border: ${props => props.borderStyle || '0px solid transparent'};
 `
 
 export const Wrapper = styled.View`

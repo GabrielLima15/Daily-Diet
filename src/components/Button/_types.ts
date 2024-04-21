@@ -19,6 +19,7 @@ export interface ButtonPropsStyles {
   padding?: SpacingProps;
   textColor?: string;
   fontFamily?: string;
+	borderStyle?: string;
 	size?: SizeProps;
 }
 

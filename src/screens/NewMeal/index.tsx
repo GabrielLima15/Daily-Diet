@@ -1,5 +1,5 @@
 import { BackButton } from "@components/BackButton";
-import { Container, ContainerStates, Dot, Group, Row, Title, TitleDiet, TopContent } from "./styles";
+import { Container, ContainerButtonSpace, ContainerStates, Dot, Group, Row, Title, TitleDiet, TopContent } from "./styles";
 import { Input } from "@components/Form/Input";
 import { Button } from "@components/Button";
 import theme, { getResponsiveSize } from "@theme/index";
@@ -16,17 +16,41 @@ const schema = z.object({
 });
 
 export function NewMeal() {
+	const [buttonStyles, setButtonStyles] = useState({
+		sim: {
+			color: theme.COLORS.gray_6,
+			border: '0px solid transparent'
+		},
+		nao: {
+			color: theme.COLORS.gray_6,
+			border: '0px solid transparent'
+		}
+	});
+
 	const { control, handleSubmit, formState: { errors } } = useForm({
 		resolver: zodResolver(schema),
 	});
 
 	const onSubmit = (data: any) => {
+		const buttonValue = buttonStyles.sim.color === theme.COLORS.green_light ? 'Sim' : 'Não';
 		data.buttonValue = buttonValue;
 		console.log(data);
 	};
 
-	const [buttonValue, setButtonValue] = useState<String>('');
-	
+
+	const handleButtonPress = (button: 'sim' | 'nao') => {
+		setButtonStyles({
+			sim: {
+				color: button === 'sim' ? theme.COLORS.green_light : theme.COLORS.gray_6,
+				border: button === 'sim' ? `1px solid ${theme.COLORS.green_dark}` : '0px solid transparent'
+			},
+			nao: {
+				color: button === 'nao' ? theme.COLORS.red_light : theme.COLORS.gray_6,
+				border: button === 'nao' ? `1px solid ${theme.COLORS.red_dark}` : '0px solid transparent'
+			}
+		});
+	};
+
 
 	return (
 		<Container>
@@ -44,6 +68,7 @@ export function NewMeal() {
 
 			<ContainerStates>
 				<Input
+					errors={errors}
 					keyboardType="default"
 					control={control}
 					name="name"
@@ -54,6 +79,7 @@ export function NewMeal() {
 				/>
 
 				<Input
+					errors={errors}
 					keyboardType="default"
 					control={control}
 					name="description"
@@ -66,6 +92,7 @@ export function NewMeal() {
 
 				<Row>
 					<Input
+						errors={errors}
 						keyboardType="number-pad"
 						control={control}
 						name="date"
@@ -78,6 +105,7 @@ export function NewMeal() {
 					/>
 
 					<Input
+						errors={errors}
 						keyboardType="number-pad"
 						control={control}
 						name="hour"
@@ -95,13 +123,14 @@ export function NewMeal() {
 
 				<Row>
 					<Button
-						backgroundColor={theme.COLORS.gray_6}
+						backgroundColor={buttonStyles.sim.color}
+						borderStyle={buttonStyles.sim.border}
 						icon
 						iconComponent={<Dot backgroudColor={theme.COLORS.green_dark} />}
 						rounded={2}
-						onPress={() => setButtonValue('Sim')}
+						onPress={() => handleButtonPress('sim')}
 						text="Sim"
-						padding={{ top: 5, bottom: 5, left: 5, right: 5, }}
+						padding={{ top: 5, bottom: 5, left: 5, right: 5 }}
 						textColor={theme.COLORS.gray_2}
 						fontFamily={theme.FONT_FAMILY.BOLD}
 						margin={{ top: 3 }}
@@ -109,13 +138,14 @@ export function NewMeal() {
 					/>
 
 					<Button
-						backgroundColor={theme.COLORS.gray_6}
+						backgroundColor={buttonStyles.nao.color}
+						borderStyle={buttonStyles.nao.border}
 						icon
 						iconComponent={<Dot backgroudColor={theme.COLORS.red_dark} />}
 						rounded={2}
-						onPress={() => setButtonValue('Não')}
+						onPress={() => handleButtonPress('nao')}
 						text="Não"
-						padding={{ top: 5, bottom: 5, left: 5, right: 5, }}
+						padding={{ top: 5, bottom: 5, left: 5, right: 5 }}
 						textColor={theme.COLORS.gray_2}
 						fontFamily={theme.FONT_FAMILY.BOLD}
 						margin={{ top: 3 }}
@@ -123,7 +153,7 @@ export function NewMeal() {
 					/>
 				</Row>
 
-				<Group>
+				<ContainerButtonSpace>
 					<Button
 						backgroundColor={theme.COLORS.gray_2}
 						rounded={2}
@@ -132,10 +162,10 @@ export function NewMeal() {
 						padding={{ top: 5, bottom: 5, left: 5, right: 5, }}
 						textColor={theme.COLORS.white}
 						fontFamily={theme.FONT_FAMILY.BOLD}
-						margin={{ bottom: getResponsiveSize(17) }} 
+						margin={{ bottom: getResponsiveSize(17) }}
 						size={{ width: 120 }}
 					/>
-				</Group>
+				</ContainerButtonSpace>
 
 			</ContainerStates>
 		</Container >

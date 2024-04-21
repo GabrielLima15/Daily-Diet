@@ -1,6 +1,5 @@
-import theme, { getResponsiveFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
+import theme, { getResponsiveSize, getResponsiveSpacing } from "@theme/index";
 import styled from "styled-components/native";
-import { NewMealProps } from "./_types";
 
 type DotProps = {
 	backgroudColor?: string;
@@ -19,8 +18,7 @@ export const TopContent = styled.SafeAreaView`
 
 export const Group = styled.View`
 	align-items: center;
-	flex: 1;
-	justify-content: flex-end;
+	margin-top: ${getResponsiveSpacing(-9)}px;
 `
 
 export const Title = styled.Text`
@@ -63,4 +61,10 @@ export const TitleDiet = styled.Text`
 	margin: ${getResponsiveSpacing(0)}px ${getResponsiveSpacing(4)}px;
 	font-family: ${theme.FONT_FAMILY.BOLD};
 	font-size: ${theme.FONT_SIZE.MD}px;
+`
+
+export const ContainerButtonSpace = styled.View`
+	align-items: center;
+	flex: 1;
+	justify-content: flex-end;
 `

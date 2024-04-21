@@ -9,7 +9,7 @@ export const Container = styled.SafeAreaView<ContainerProps>`
     ${margin.bottom !== undefined ? `margin-bottom: ${getResponsiveSpacing(margin.bottom)}px;` : ''}
     ${margin.left !== undefined ? `margin-left: ${getResponsiveSpacing(margin.left)}px;` : ''}
   `}
-	width: ${props => props.width !== undefined ?  `${getResponsiveSize(props.width)}` : `auto`}px;
+	width: ${props => props.width !== undefined ? `${getResponsiveSize(props.width)}` : `auto`}px;
 `;
 
 export const LabelInput = styled.Text<LabelInputProps>`
@@ -29,6 +29,13 @@ export const TextInput = styled.TextInput<TextInputProp>`
     ${padding.bottom !== undefined ? `padding-bottom: ${getResponsiveSpacing(padding.bottom)}px;` : ''}
     ${padding.left !== undefined ? `padding-left: ${getResponsiveSpacing(padding.left)}px;` : ''}
   `}
-	height: ${props => props.height !== undefined ?  `${getResponsiveSize(props.height)}` : `auto`}px;;
+	height: ${props => props.height !== undefined ? `${getResponsiveSize(props.height)}` : `auto`}px;;
 	border-radius: ${getResponsiveSpacing(2)}px;
+
 `
+
+export const ErrorMessage = styled.Text`
+    color: red; 
+    font-size: 12px;
+    margin-top: 5px;
+`;

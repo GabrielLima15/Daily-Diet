@@ -1,4 +1,4 @@
-import { Control } from "react-hook-form";
+import { Control, FieldErrors } from "react-hook-form";
 import { KeyboardType } from "react-native";
 
 export interface SpacingProps {
@@ -18,6 +18,7 @@ export interface InputProps {
   multiline?: boolean;
   height?: number;
 	keyboardType: KeyboardType
+	errors?: any;
 }
 
 export interface LabelInputProps {
