@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from "zod";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const schema = z.object({
 	name: z.string().nonempty({ message: 'Nome é obrigatório' }),
@@ -31,9 +32,13 @@ export function NewMeal() {
 		resolver: zodResolver(schema),
 	});
 
+	const navigation = useNavigation()
+
 	const onSubmit = (data: any) => {
 		const buttonValue = buttonStyles.sim.color === theme.COLORS.green_light ? 'Sim' : 'Não';
 		data.buttonValue = buttonValue;
+
+		navigation.navigate("withinDiet")
 		console.log(data);
 	};
 
