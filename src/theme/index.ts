@@ -2,7 +2,7 @@ import { PixelRatio, Platform, StatusBar } from 'react-native';
 
 const currentHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
-export const getResponsiveFontSize = (size: number): number => {
+export const getFontSize = (size: number): number => {
     const fontScale = PixelRatio.getFontScale();
     return size / fontScale;
 };
