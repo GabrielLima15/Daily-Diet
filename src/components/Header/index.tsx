@@ -1,14 +1,11 @@
-import { Container } from "./styles";
-
-import Logo from '@assets/Logo.svg'
-import Avatar from '@assets/Avatar.svg'
+import { Avatar, Container, Logo } from "./styles";
 
 export function Header() {
 	return (
 		<Container>
-			<Logo width={80} height={80} />
+			<Logo icon="logo" width={100} height={100} />
 
-			<Avatar width={40} height={40} />
+			<Avatar icon="user" width={40} height={40} />
 		</Container>
 	)
 }
