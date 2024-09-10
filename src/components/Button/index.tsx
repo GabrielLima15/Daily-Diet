@@ -1,5 +1,7 @@
+import React from 'react';
 import { Container, IconContainer, TextButton, Wrapper } from "./styles";
 import { ButtonProps } from "./_types";
+import { Load, WindowScreen } from '@ui/index'; 
 
 export function Button({
   backgroundColor,
@@ -8,35 +10,39 @@ export function Button({
   iconComponent,
   text,
   onPress,
-  margin,
-  padding,
   fontFamily,
   textColor,
-	size,
-	borderStyle
+  width = WindowScreen.width * 0.8,  
+  height = 45,  
+  borderStyle,
+  loading 
 }: ButtonProps) {
   return (
     <Container
       backgroundColor={backgroundColor}
-			borderStyle={borderStyle} 
+      borderStyle={borderStyle}
       rounded={rounded}
-      onPress={onPress}
-			margin={margin}
-      padding={padding}
-			size={size}
+      onPress={!loading ? onPress : () => {}} 
+      width={width}  // Aplicando a largura
+      height={height}  // Aplicando a altura
     >
       <Wrapper>
-        {icon && (
-          <IconContainer>
-            {iconComponent}
-          </IconContainer>
+        {loading ? (
+          <Load /> 
+        ) : (
+          <>
+            {icon && (
+              <IconContainer>
+                {iconComponent}
+              </IconContainer>
+            )}
+            <TextButton
+              fontFamily={fontFamily}
+              textColor={textColor}>
+              {text}
+            </TextButton>
+          </>
         )}
-
-        <TextButton
-          fontFamily={fontFamily}
-          textColor={textColor}>
-          {text}
-        </TextButton>
       </Wrapper>
     </Container>
   );
