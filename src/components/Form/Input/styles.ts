@@ -1,41 +1,35 @@
 import theme, { getResponsiveSize, getResponsiveSpacing } from "@theme/index";
 import styled from "styled-components/native";
-import { ContainerProps, LabelInputProps, TextInputProp } from "./_types";
+import { ContainerProps, TextInputProp } from "./_types";
+import { WindowScreen } from "@ui/index";
 
 export const Container = styled.SafeAreaView<ContainerProps>`
-  ${({ margin, theme }) => margin && `
-    ${margin.top !== undefined ? `margin-top: ${getResponsiveSpacing(margin.top)}px;` : ''}
-    ${margin.right !== undefined ? `margin-right: ${getResponsiveSpacing(margin.right)}px;` : ''}
-    ${margin.bottom !== undefined ? `margin-bottom: ${getResponsiveSpacing(margin.bottom)}px;` : ''}
-    ${margin.left !== undefined ? `margin-left: ${getResponsiveSpacing(margin.left)}px;` : ''}
-  `}
-	width: ${props => props.width !== undefined ? `${getResponsiveSize(props.width)}` : `auto`}px;
+  width: ${props => props.width !== undefined ? `${props.width}px` : `${WindowScreen.width * 0.6}px`}; 
 `;
 
-export const LabelInput = styled.Text<LabelInputProps>`
-  ${({ padding, theme }) => padding && `
-    ${padding.top !== undefined ? `padding-top: ${getResponsiveSpacing(padding.top)}px;` : ''}
-    ${padding.right !== undefined ? `padding-right: ${getResponsiveSpacing(padding.right)}px;` : ''}
-    ${padding.bottom !== undefined ? `padding-bottom: ${getResponsiveSpacing(padding.bottom)}px;` : ''}
-    ${padding.left !== undefined ? `padding-left: ${getResponsiveSpacing(padding.left)}px;` : ''}
-  `}
+export const LabelInput = styled.Text`
+  font-size: 16px;
+  color: ${props => props.theme.COLORS.gray_1};
+	padding-bottom: ${getResponsiveSpacing(2)}px;
 `;
 
 export const TextInput = styled.TextInput<TextInputProp>`
-	border: 1px solid ${theme.COLORS.gray_5};
-	${({ padding, theme }) => padding && `
-    ${padding.top !== undefined ? `padding-top: ${getResponsiveSpacing(padding.top)}px;` : ''}
-    ${padding.right !== undefined ? `padding-right: ${getResponsiveSpacing(padding.right)}px;` : ''}
-    ${padding.bottom !== undefined ? `padding-bottom: ${getResponsiveSpacing(padding.bottom)}px;` : ''}
-    ${padding.left !== undefined ? `padding-left: ${getResponsiveSpacing(padding.left)}px;` : ''}
-  `}
-	height: ${props => props.height !== undefined ? `${getResponsiveSize(props.height)}` : `auto`}px;;
-	border-radius: ${getResponsiveSpacing(2)}px;
-
-`
+  border: 1px solid ${props => props.theme.COLORS.gray_5};
+  height: ${props => props.height}px;  
+  width: 100%; 
+  border-radius: 5px;
+  padding: ${props => props.padding !== undefined ? `${props.padding}px` : '10px'};
+`;
 
 export const ErrorMessage = styled.Text`
-    color: red; 
-    font-size: 12px;
-    margin-top: 5px;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 `;
+
+export const EyeIconContainer = styled.View`
+  position: absolute;
+  right: ${WindowScreen.width * 0.02}; 
+  bottom: ${WindowScreen.height * 0.01}; 
+`;
+
