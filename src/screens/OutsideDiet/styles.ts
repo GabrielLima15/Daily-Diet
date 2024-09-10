@@ -1,4 +1,4 @@
-import theme, { getResponsiveFontSize, getResponsiveSpacing } from "@theme/index";
+import theme, { getFontSize, getResponsiveSpacing } from "@theme/index";
 import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
@@ -16,13 +16,13 @@ export const Group = styled.View`
 
 export const Title = styled.Text`
 	font-family: ${theme.FONT_FAMILY.BOLD};
-	font-size: ${getResponsiveFontSize(theme.FONT_SIZE.XXL)}px;
+	font-size: ${getFontSize(theme.FONT_SIZE.XXL)}px;
 	color: ${theme.COLORS.red_dark};
 `
 export const Subtitle = styled.Text`
 	font-family: ${theme.FONT_FAMILY.REGULAR};
 	text-align: center;
-	font-size: ${getResponsiveFontSize(theme.FONT_SIZE.LG)}px;
+	font-size: ${getFontSize(theme.FONT_SIZE.LG)}px;
 `
 
 export const Highlight = styled.Text`

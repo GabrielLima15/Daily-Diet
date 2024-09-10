@@ -1,7 +1,8 @@
 import { BackButton } from "@components/BackButton";
-import { Column, Container, ContainerStates, Description, Group, NumberPercentage, Row, Title, TopContent } from "./styles";
+import { Container, ContainerStates, Description, Group, NumberPercentage, Title, TopContent } from "./styles";
 import { Card } from "@components/Card";
 import theme, { getResponsiveSize } from "@theme/index";
+import { Column, Row, WindowScreen } from "@ui/index";
 
 export function DietInfo() {
 	return (
@@ -25,48 +26,47 @@ export function DietInfo() {
 			<ContainerStates>
 				<Title>Estatísticas gerais</Title>
 
-				<Column>
+				<Column gap={20}>
 					<Card
-						margin={{ top: 5, bottom: 5, left: 2, right: 2 }}
-						rounded={2}
-						size={{ width: getResponsiveSize(42)}}
+						rounded={5}
 						titleFontSize={theme.FONT_SIZE.XL}
 						title="22"
 						subTitle="das refeições dentro da dieta"
 						backgroundColor={theme.COLORS.gray_6}
+						width={WindowScreen.width * 0.9}
+						height={102}
 					/>
 
 					<Card
-						margin={{ bottom: 5, left: 2, right: 2 }}
-						rounded={2}
-						size={{ width: getResponsiveSize(42)}}
+						rounded={5}
 						titleFontSize={theme.FONT_SIZE.XL}
 						title="109"
 						subTitle="das refeições dentro da dieta"
 						backgroundColor={theme.COLORS.gray_6}
+						width={WindowScreen.width * 0.9}
+						height={102}
 					/>
 				</Column>
 
-				<Row>
-
+				<Row gap={20} paddingTop={20}>
 					<Card
-						size={{ width: getResponsiveSize(20)}}
-						margin={{ left: 2, right: 2 }}
-						rounded={2}
+						rounded={5}
 						titleFontSize={theme.FONT_SIZE.XL}
 						title="99"
 						subTitle={`refeições dentro da ${`\n`} dieta`}
 						backgroundColor={theme.COLORS.green_light}
+						width={WindowScreen.width * 0.43}
+						height={102}
 					/>
 
 					<Card
-						size={{ width: getResponsiveSize(20)}}
-						margin={{ left: 2, right: 2 }}
-						rounded={2}
+						rounded={5}
 						titleFontSize={theme.FONT_SIZE.XL}
 						title="10"
 						subTitle={`refeições fora da ${`\n`} dieta`}
 						backgroundColor={theme.COLORS.red_light}
+						width={WindowScreen.width * 0.43}
+						height={102}
 					/>
 
 				</Row>

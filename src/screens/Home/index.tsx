@@ -6,6 +6,7 @@ import { Plus } from "phosphor-react-native";
 import { SectionList } from "react-native";
 import { Blur, Container, Divider, DotMeal, HeaderSectionList, Hour, MealTitle, SectionListColumn, Title } from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { Row, WindowScreen } from "@ui/index";
 
 export function Home() {
 
@@ -106,33 +107,38 @@ export function Home() {
 		<Container>
 			<Header />
 
-			<Card
-				onPress={() => navigation.navigate('dietInfo')}
-				rounded={2}
-				margin={{ left: 5, right: 5 }}
-				arrow
-				arrowColor={theme.COLORS.green_dark}
-				titleFontSize={theme.FONT_SIZE.XXXL}
-				title="90,86%"
-				subTitle="das refeições dentro da dieta"
-			/>
+			<Row>
+				<Card
+					onPress={() => navigation.navigate('dietInfo')}
+					rounded={5}
+					arrow
+					arrowColor={theme.COLORS.green_dark}
+					titleFontSize={theme.FONT_SIZE.XXXL}
+					title="90,86%"
+					subTitle="das refeições dentro da dieta"
+					width={WindowScreen.width * 0.9}
+					height={102}
+				/>
+			</Row>
 
 			<Title>
 				Refeições
 			</Title>
 
-			<Button
-				backgroundColor={theme.COLORS.gray_2}
-				rounded={2}
-				icon
-				iconComponent={<Plus color={theme.COLORS.white} weight={"bold"} size={15} />}
-				padding={{ top: 5, bottom: 5, left: 5, right: 5, }}
-				margin={{ left: 5, right: 5, top: 5, bottom: 5}}
-				onPress={() => navigation.navigate('newMeal')}
-				text="Nova Refeição"
-				textColor={theme.COLORS.white}
-				fontFamily={theme.FONT_FAMILY.BOLD}
-			/>
+			<Row paddingTop={10}>
+				<Button
+					backgroundColor={theme.COLORS.gray_2}
+					rounded={5}
+					icon
+					iconComponent={<Plus color={theme.COLORS.white} weight={"bold"} size={15} />}
+					onPress={() => navigation.navigate('newMeal')}
+					text="Nova Refeição"
+					width={WindowScreen.width * 0.89}
+					height={50}
+					textColor={theme.COLORS.white}
+					fontFamily={theme.FONT_FAMILY.BOLD}
+				/>
+			</Row>
 
 			<SectionList
 				sections={DATA}

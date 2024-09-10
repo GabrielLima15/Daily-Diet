@@ -1,4 +1,5 @@
-import theme, { getResponsiveFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
+import theme, { getFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
+import { WindowScreen } from "@ui/index";
 import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
@@ -30,7 +31,7 @@ export const ContainerStates = styled.View`
 	background-color: ${theme.COLORS.white};
 	position: absolute;
 	width: 100%;
-	top: 20%;
+	top: ${WindowScreen.height * 0.2};
 	height: 100%;
 	border-top-left-radius: 30px;
  	border-top-right-radius: 30px;
@@ -42,7 +43,7 @@ export const Title = styled.Text`
 	padding-top: ${getResponsiveSize(15)}px;
 	padding-bottom: ${getResponsiveSize(5)}px;
 	font-family: ${theme.FONT_FAMILY.BOLD};
-	font-size: ${getResponsiveFontSize(14)}px;
+	font-size: ${getFontSize(14)}px;
 `
 
 export const Column = styled.View`

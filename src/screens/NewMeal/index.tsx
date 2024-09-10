@@ -1,5 +1,5 @@
 import { BackButton } from "@components/BackButton";
-import { Container, ContainerButtonSpace, ContainerStates, Dot, Group, Row, Title, TitleDiet, TopContent } from "./styles";
+import { Container, ContainerButtonSpace, ContainerStates, Dot, Group, Title, TitleDiet, TopContent } from "./styles";
 import { Input } from "@components/Form/Input";
 import { Button } from "@components/Button";
 import theme, { getResponsiveSize } from "@theme/index";
@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from "zod";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { Column, Row, WindowScreen } from "@ui/index";
 
 const schema = z.object({
 	name: z.string().nonempty({ message: 'Nome é obrigatório' }),
@@ -72,41 +73,40 @@ export function NewMeal() {
 			</TopContent>
 
 			<ContainerStates>
-				<Input
-					errors={errors}
-					keyboardType="default"
-					control={control}
-					name="name"
-					label="Nome"
-					margin={{ top: 15, right: 5, left: 5, }}
-					paddingLabel={{ top: 2, bottom: 2, }}
-					paddingInput={{ top: 4, bottom: 4, right: 2, left: 2 }}
-				/>
+				<Column paddingTop={50}>
+					<Input
+						errors={errors}
+						keyboardType="default"
+						control={control}
+						name="name"
+						label="Nome"
+						width={WindowScreen.width * 0.89}
+						height={45}
+					/>
 
-				<Input
-					errors={errors}
-					keyboardType="default"
-					control={control}
-					name="description"
-					multiline={true}
-					height={40}
-					label="Descrição"
-					margin={{ right: 5, top: 6, left: 5, }}
-					paddingLabel={{ top: 2, bottom: 2, }}
-					paddingInput={{ top: 4, bottom: 4, right: 2, left: 2 }} />
+					<Input
+						errors={errors}
+						keyboardType="default"
+						control={control}
+						name="description"
+						multiline={true}
+						label="Descrição"
+						width={WindowScreen.width * 0.89}
+						height={120}
+					/>
+				</Column>
 
-				<Row>
+				<Row paddingTop={30} gap={20}>
 					<Input
 						errors={errors}
 						keyboardType="number-pad"
 						control={control}
 						name="date"
 						maskType="date"
-						width={getResponsiveSize(22)}
+						width={WindowScreen.width * 0.42}
+						height={45}
 						label="Data"
-						margin={{ top: 6, bottom: 10, }}
-						paddingLabel={{ top: 2, bottom: 2, }}
-						paddingInput={{ top: 4, bottom: 4, right: 2, left: 2 }}
+						placeholder="DD/MM/YYYY"
 					/>
 
 					<Input
@@ -115,31 +115,30 @@ export function NewMeal() {
 						control={control}
 						name="hour"
 						maskType="time"
-						width={getResponsiveSize(22)}
+						width={WindowScreen.width * 0.42}
+						height={45}
 						label="Hora"
-						margin={{ top: 6, bottom: 10, }}
-						paddingLabel={{ top: 2, bottom: 2, }}
-						paddingInput={{ top: 4, bottom: 4, right: 2, left: 2 }}
+						placeholder="HH:MM"
 					/>
+
 				</Row>
 
 
 				<TitleDiet>Está dentro da dieta?</TitleDiet>
 
-				<Row>
+				<Row paddingTop={10} gap={20}>
 					<Button
 						backgroundColor={buttonStyles.sim.color}
 						borderStyle={buttonStyles.sim.border}
 						icon
 						iconComponent={<Dot backgroudColor={theme.COLORS.green_dark} />}
-						rounded={2}
+						rounded={5}
 						onPress={() => handleButtonPress('sim')}
 						text="Sim"
-						padding={{ top: 5, bottom: 5, left: 5, right: 5 }}
+						width={WindowScreen.width * 0.42}
+						height={50}
 						textColor={theme.COLORS.gray_2}
 						fontFamily={theme.FONT_FAMILY.BOLD}
-						margin={{ top: 3 }}
-						size={{ width: getResponsiveSize(22) }}
 					/>
 
 					<Button
@@ -147,28 +146,27 @@ export function NewMeal() {
 						borderStyle={buttonStyles.nao.border}
 						icon
 						iconComponent={<Dot backgroudColor={theme.COLORS.red_dark} />}
-						rounded={2}
+						rounded={5}
 						onPress={() => handleButtonPress('nao')}
 						text="Não"
-						padding={{ top: 5, bottom: 5, left: 5, right: 5 }}
+						width={WindowScreen.width * 0.42}
+						height={50}
 						textColor={theme.COLORS.gray_2}
 						fontFamily={theme.FONT_FAMILY.BOLD}
-						margin={{ top: 3 }}
-						size={{ width: getResponsiveSize(22) }}
 					/>
+
 				</Row>
 
 				<ContainerButtonSpace>
 					<Button
 						backgroundColor={theme.COLORS.gray_2}
-						rounded={2}
+						rounded={5}
 						onPress={handleSubmit(onSubmit)}
 						text="Cadastrar refeição"
-						padding={{ top: 5, bottom: 5, left: 5, right: 5, }}
+						width={WindowScreen.width * 0.89}
+						height={50}
 						textColor={theme.COLORS.white}
 						fontFamily={theme.FONT_FAMILY.BOLD}
-						margin={{ bottom: getResponsiveSize(17) }}
-						size={{ width: 120 }}
 					/>
 				</ContainerButtonSpace>
 

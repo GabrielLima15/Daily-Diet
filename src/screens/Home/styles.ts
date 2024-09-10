@@ -1,4 +1,4 @@
-import theme, { getResponsiveFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
+import theme, { getFontSize, getResponsiveSize, getResponsiveSpacing } from "@theme/index";
 import styled from "styled-components/native";
 
 interface DotMealProps {
@@ -20,7 +20,7 @@ export const HeaderSectionList = styled.Text`
 	margin: ${getResponsiveSpacing(0)}px ${getResponsiveSpacing(8)}px;
 	font-family: ${theme.FONT_FAMILY.BOLD};
 	line-height: ${getResponsiveSpacing(15)}px;
-	font-size: ${getResponsiveFontSize(18)}px;
+	font-size: ${getFontSize(18)}px;
 `
 
 export const SectionListColumn = styled.View`
@@ -37,7 +37,7 @@ export const SectionListColumn = styled.View`
 
 export const Hour = styled.Text`
 	font-family: ${theme.FONT_FAMILY.BOLD};
-	font-size: ${getResponsiveFontSize(15)}px;
+	font-size: ${getFontSize(15)}px;
 `
 
 export const Divider = styled.View`
@@ -51,7 +51,7 @@ export const MealTitle = styled.Text`
 	flex: 1;
 
 	font-family: ${theme.FONT_FAMILY.REGULAR};
-	font-size: ${getResponsiveFontSize(16)}px;
+	font-size: ${getFontSize(16)}px;
 `
 
 export const DotMeal = styled.View<DotMealProps>`

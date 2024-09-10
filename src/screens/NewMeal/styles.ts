@@ -43,11 +43,24 @@ export const GroupCards = styled.View`
 
 `
 
-export const Row = styled.View`
+interface RowProps {
+	paddingTop?: number;
+}
+
+export const Row = styled.View<RowProps>`
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	gap: ${getResponsiveSpacing(5)}px;
+	padding-top: ${props => props.paddingTop !== undefined ? `${props.paddingTop}px` : '0px'};
+`
+
+export const Column = styled.View<RowProps>`
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: ${getResponsiveSpacing(5)}px;
+	padding-top: ${props => props.paddingTop !== undefined ? `${props.paddingTop}px` : '0px'};
 `
 
 export const Dot = styled.View<DotProps>`
@@ -58,13 +71,14 @@ export const Dot = styled.View<DotProps>`
 `
 
 export const TitleDiet = styled.Text`
-	margin: ${getResponsiveSpacing(0)}px ${getResponsiveSpacing(4)}px;
+	margin: ${getResponsiveSpacing(0)}px ${getResponsiveSpacing(8)}px;
 	font-family: ${theme.FONT_FAMILY.BOLD};
 	font-size: ${theme.FONT_SIZE.MD}px;
+	padding-top: ${getResponsiveSpacing(10)}px;
 `
 
 export const ContainerButtonSpace = styled.View`
 	align-items: center;
 	flex: 1;
-	justify-content: flex-end;
+	padding-top: ${getResponsiveSpacing(40)}px;
 `
