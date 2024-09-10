@@ -10,14 +10,26 @@
 			"@components/*": [
 				"./src/components/*"
 			],
+			"@context/*": [
+				"./src/context/*"
+			],
+			"@router/*": [
+				"./src/router/*"
+			],
 			"@routes/*": [
 				"./src/routes/*"
 			],
 			"@screens/*": [
 				"./src/screens/*"
 			],
+			"@services/*": [
+				"./src/services/*"
+			],
 			"@storage/*": [
-				"./src/storage/*"
+				"./src/services/storage/*"
+			],
+			"@ui/*": [
+				"./src/ui/*"
 			],
 			"@theme/*": [
 				"./src/theme/*"
