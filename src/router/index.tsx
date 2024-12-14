@@ -7,7 +7,8 @@ import { Home } from '@screens/Home';
 import { NewMeal } from '@screens/NewMeal';
 import { OutsideDiet } from '@screens/OutsideDiet';
 import { WithinDiet } from '@screens/WithinDiet';
-import { Login } from '@screens/Login';
+import Login from '@screens/Login';
+import Register from '@screens/Register';
 
 export default function Router() {
 	const { Navigator, Screen } = createNativeStackNavigator()
@@ -15,6 +16,7 @@ export default function Router() {
 	return (
 		<Navigator screenOptions={{ headerShown: false }} initialRouteName="Splash">
 			<Screen name='login' component={Login} />
+			<Screen name='register' component={Register} />
 
 
 			<Screen name="home" component={Home} />

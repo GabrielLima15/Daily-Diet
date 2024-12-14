@@ -28,8 +28,9 @@ export const ErrorMessage = styled.Text`
 `;
 
 export const EyeIconContainer = styled.View`
-  position: absolute;
-  right: ${WindowScreen.width * 0.02}; 
-  bottom: ${WindowScreen.height * 0.01}; 
+  position: absolute; 
+  right: ${WindowScreen.width * 0.02}px;
+  top: ${WindowScreen.height * 0.04}px;
 `;
+
 

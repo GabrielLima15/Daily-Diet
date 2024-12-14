@@ -13,7 +13,7 @@ export const ModalContainer = styled(Animatable.View).attrs({
     duration: 300
 })`      
     position: absolute;
-    background-color: ${ props => props.theme.shadow };   
+    background-color: ${props => props.theme.COLORS.shadow};   
     top: 0;
     bottom: 0;
     right: 0;
@@ -65,13 +65,10 @@ export const HeaderClose = styled.TouchableOpacity.attrs({
 })`          
 `;    
 
-export const HeaderCloseIcon = styled(Icon).attrs(props => ({
-    icon:'close',
-    stroke: props.theme.black,
-    width: 24,
-    height: 24
-}))`          
-`;    
+export const HeaderCloseIcon = styled(Icon).attrs({
+  width: 24,
+  height: 24,
+})``;
 
 
 
@@ -97,10 +94,11 @@ export const HeaderTitleContent = styled.View.attrs({
     flex:1;
 `; 
 
-export const HeaderTitleIcon = styled(Icon).attrs(props => ({
-    stroke: props.theme.black,
-    width: 24,
-    height: 24
-}))`       
-    margin-left: 10px;
-`; 
+export const HeaderTitleIcon = styled(Icon).attrs((props) => ({
+  icon: props.icon, 
+  stroke: props.theme.black,
+  width: 24,
+  height: 24,
+}))`
+  margin-left: 10px;
+`;

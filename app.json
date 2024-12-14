@@ -1,37 +1,72 @@
 {
-  "expo": {
-    "name": "Daily-Diet",
-    "slug": "Daily-Diet",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.gcldev99.DailyDiet"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.gcldev99.DailyDiet"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "5cc0102e-4618-4875-a98b-37add30ccd03"
-      }
-    }
-  }
+	"expo": {
+		"name": "Daily-Diet",
+		"slug": "Daily-Diet",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"assetBundlePatterns": [
+			"**/*"
+		],
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.gcldev99.DailyDiet",
+			"infoPlist": {
+				"NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"package": "com.gcldev99.DailyDiet",
+			"permissions": [
+				"android.permission.SCHEDULE_EXACT_ALARM"
+			]
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "5cc0102e-4618-4875-a98b-37add30ccd03"
+			}
+		},
+		"plugins": [
+			[
+				"expo-camera",
+				{
+					"cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+					"microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+					"recordAudioAndroid": true
+				}
+			],
+			[
+				"expo-media-library",
+				{
+					"photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+					"savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos."
+				}
+			],
+			[
+				"expo-image-picker",
+				{
+					"photosPermission": "The app accesses your photos to let you share them with your friends."
+				}
+			],
+			[
+				"expo-media-library",
+				{
+					"photosPermission": "Allow $(PRODUCT_NAME) to access your photos."
+				}
+			]
+		]
+	}
 }

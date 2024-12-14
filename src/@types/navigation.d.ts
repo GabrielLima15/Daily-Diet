@@ -6,6 +6,8 @@ export declare global {
 			newMeal: undefined;
 			withinDiet: undefined;
 			outsideDiet: undefined;
+			login: undefined;
+			register: undefined;
 		}
 	}
 }

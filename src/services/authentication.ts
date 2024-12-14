@@ -2,7 +2,7 @@ import { GET, POST } from './api'
 import { ReadObject, SaveObject } from './storage'
 
 export const DoRegister = async (params : any) => {
-	return await POST(`/users`, params)
+	return await POST(`/auth/local/register`, params)
 }
 
 export const DoLogin = async (params : any) => {
