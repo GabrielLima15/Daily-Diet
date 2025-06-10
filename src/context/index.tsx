@@ -1,20 +1,23 @@
 
-import React from 'react'; 
+import React from 'react';
 
-import { CoreState } from './CoreContext' 
-import { AuthState } from './AuthContext' 
+import { CoreState } from './CoreContext'
+import { AuthState } from './AuthContext'
+import { MealState } from './MealContext';
 
 interface AppContextProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 
 export default function AppContext({ children }: AppContextProps) {
 
-  return (   
-        <CoreState>
-          <AuthState>  
-              { children } 
-          </AuthState>
-        </CoreState> 
-  );
+	return (
+		<CoreState>
+			<AuthState>
+				<MealState>
+					{children}
+				</MealState>
+			</AuthState>
+		</CoreState>
+	);
 }
